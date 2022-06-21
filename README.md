@@ -14,5 +14,6 @@ zig build # then run zig-out/zig-gba.gb with vbam
 
 ## Resources
 
-- [GBATEK](https://www.problemkaputt.de/gbatek.htm)
+- [gbdk website](https://gbdk-2020.github.io/gbdk-2020/docs/api/index.html)
+- [gbdk examples](https://github.com/mrombout/gbdk_playground)
 
