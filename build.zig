@@ -21,13 +21,13 @@ pub fn build(b: *std.build.Builder) !void {
         "-DUSE_SFR_FOR_REG",
         "-c",
         "-o",
-        "main.o",
+        "zig-gb.o",
         "../src/main.c",
     });
     obj.cwd = "zig-out";
 
     const gb = b.addSystemCommand(&.{
-        "../gbdk/bin/lcc", "-Wa-l", "-DUSE_SFR_FOR_REG", "-o", "main.gb", "main.o",
+        "../gbdk/bin/lcc", "-Wa-l", "-DUSE_SFR_FOR_REG", "-o", "zig-gb.gb", "zig-gb.o",
     });
     gb.cwd = "zig-out";
 
@@ -35,7 +35,7 @@ pub fn build(b: *std.build.Builder) !void {
     gb.step.dependOn(&obj.step);
 
     const run_step = b.step("run", "Run in Visual Boy Advance");
-    const vbam = b.addSystemCommand(&.{ emulator, "-F", "zig-out/main.gb" });
+    const vbam = b.addSystemCommand(&.{ emulator, "-F", "zig-out/zig-gb.gb" });
     run_step.dependOn(&gb.step);
     run_step.dependOn(&vbam.step);
 }

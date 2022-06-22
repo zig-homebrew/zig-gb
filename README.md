@@ -9,7 +9,7 @@
 ```
 git clone https://github.com/zig-homebrew/zig-gb
 cd zig-gb/
-zig build # then run zig-out/zig-gba.gb with vbam
+zig build # then run zig-out/zig-gb.gb with vbam
 ```
 
 ## Resources
